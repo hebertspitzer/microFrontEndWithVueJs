@@ -1,23 +1,20 @@
 <template>
-    <Header titulo="Menu de Teste" subTitulo="Usando micro front-end" botao1="Ir Para a pagina inicial" botao2="Mais informações" url1="http://localhost:8081/"/>
-    <TituloPagina Titulo="Menu"/>
-  <div class="border-t bottom-0 left-0 h-15 fixed w-full">
-    <HelloWorld/>
-  </div>
-    
+    <Header titulo="Menu de Teste" subTitulo="Usando micro front-end" botao1="Ir Para a pagina inicial" url1="http://localhost:8081/"/>
+    <viewBody Titulo="Pagina de Menu" TextoPrincipal="Texto Principal da pagina Menu" Topico1="Primeiro Topico" texto1="Primeiro texto da Pagina Menu" Topico2=" Segundo Topico" texto2="Segundo texto da pagina Menu"/>
+    <Footer />
 </template>
 
 <script lang="ts">
 import { Component } from "Vue";
-import TituloPagina from 'teste/TituloPagina';
-import Header from 'teste/Header';
-import HelloWorld from 'helloWorldTeste/HelloWorld';
+import Header from 'footerAndHeaderFolder/Header';
+import viewBody from 'viewBodyFolder/viewBody';
+import Footer from 'footerAndHeaderFolder/Footer';
 
 export default {
   components: {
-    TituloPagina,
     Header,
-    HelloWorld,
+    viewBody,
+    Footer,
   },
   computed: {}
 }

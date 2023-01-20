@@ -5,7 +5,7 @@ const path = require("path");
 
 module.exports = {
   output: {
-    publicPath: "http://localhost:8085/",
+    publicPath: "http://localhost:8080/",
   },
 
   resolve: {
@@ -14,7 +14,7 @@ module.exports = {
 
   devServer: {
     contentBase: path.join(__dirname, "public"),
-    port: 8085,
+    port: 8080,
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
@@ -47,12 +47,14 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
-      name: "helloWorldTeste",
+      name: "footerAndHeaderFolder",
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./HelloWorld": "./src/components/HelloWorld",
-        "./VanillaHelloWorld": "./src/components/VanillaHelloWorld.js",
+        "./Header": "./src/components/Header",
+        "./Footer": "./src/components/Footer",
+        "./VanillaHeader": "./src/components/VanillaHeader.js",
+        "./VanillaFooter": "./src/components/VanillaFooter.js",
       },
       shared: require("./package.json").dependencies,
     }),

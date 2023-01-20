@@ -43,8 +43,8 @@ module.exports = {
       name: "vuehost",
       filename: "remoteEntry.js",
       remotes: {
-        teste: "teste@http://localhost:8080/remoteEntry.js",
-        helloWorldTeste: "helloWorldTeste@http://localhost:8085/remoteEntry.js",
+        footerAndHeaderFolder: "footerAndHeaderFolder@http://localhost:8080/remoteEntry.js",
+        viewBodyFolder: "viewBodyFolder@http://localhost:8085/remoteEntry.js",
       },
       exposes: {},
       shared: require("./package.json").dependencies,

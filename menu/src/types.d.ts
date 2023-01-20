@@ -1,3 +1,3 @@
-declare module "teste/TituloPagina";
-declare module "teste/Header";
-declare module "helloWorldTeste/HelloWorld";
+declare module "footerAndHeaderFolder/Header";
+declare module "footerAndHeaderFolder/Footer";
+declare module "viewBodyFolder/viewBody";

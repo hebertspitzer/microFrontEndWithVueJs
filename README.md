@@ -3,9 +3,9 @@
 # Instalação
 
 ```sh
-% cd helloWorldTeste && yarn
+% cd viewBodyFolder && yarn
 % cd menu && yarn
-% cd teste && yarn
+% cd headerFolder && yarn
 % cd vueHost && yarn
 ```
 
@@ -13,8 +13,8 @@
 
 
 ```sh
-% cd helloWorldTeste && yarn start
+% cd viewBodyFolder && yarn start
 % cd menu && yarn start
-% cd teste && yarn start
+% cd headerFolder && yarn start
 % cd vueHost && yarn start
 ```

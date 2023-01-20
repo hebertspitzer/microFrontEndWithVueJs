@@ -6,10 +6,10 @@
         <span class="block text-indigo-600">{{ subTitulo }}</span>
       </h2>
       <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-        <div class="inline-flex rounded-md shadow">
+        <div v-if="botao1" class="inline-flex rounded-md shadow">
           <a :href="url1" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700">{{ botao1 }}</a>
         </div>
-        <div class="ml-3 inline-flex rounded-md shadow">
+        <div v-if="botao2" class="ml-3 inline-flex rounded-md shadow">
           <a :href="url2" class="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-indigo-600 hover:bg-indigo-50">{{ botao2 }}</a>
         </div>
       </div>
