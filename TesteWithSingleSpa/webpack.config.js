@@ -1,7 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const  { ModuleFederationPlugin }  =  require ( 'module-federation-plugin' )
+const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
   mode: 'development',
@@ -9,24 +11,31 @@ module.exports = {
     'single-spa.config': './single-spa.config.js',
   },
   output: {
-    publicPath: '/dist/',
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    publicPath: "http://localhost:8081/",
   },
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }, {
+        test: /\.vue$/,
+        loader: "vue-loader",
+      },
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader",
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        },
+        exclude: /node_modules/,
+      },
+      {
         test: /\.js$/,
         exclude: [path.resolve(__dirname, 'node_modules')],
         loader: 'babel-loader',
       },
       {
-        test: /\.vue$/,
-        loader: 'vue-loader'
-      }
+        test: /\.s[ac]ss$/i,
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
     ],
   },
   node: {
@@ -40,11 +49,22 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new ModuleFederationPlugin({
+      name: "vuehost",
+      filename: "remoteEntry.js",
+      remotes: {
+        footerAndHeaderFolder: "footerAndHeaderFolder@http://localhost:8080/remoteEntry.js"
+      },
+      exposes: {}
+    }),
+    new HtmlWebPackPlugin({
+      template: "./src/index.html",
+    }),
   ],
   devtool: 'source-map',
   externals: [],
   devServer: {
-    historyApiFallback: true
-  }
+    port: 8081,
+  },
 };
