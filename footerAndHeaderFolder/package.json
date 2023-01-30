@@ -1,5 +1,5 @@
 {
-  "name": "growlers",
+  "name": "footer-and-header-folder",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production",
